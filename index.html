@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
+    <style>
         body {
             * {
                 margin: 0;
@@ -43,7 +44,7 @@
         nav ul li a {
             text-decoration: none;
             color: rgb(38, 38, 131);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         nav ul li a:hover {
@@ -51,7 +52,7 @@
         }
 
         .left {
-            font-size: 2 rem;
+            font-size: 2rem;
         }
 
         .firstSection {
@@ -67,7 +68,7 @@
 
         .leftSection {
             width: 1%;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             background-color: white;
             margin-top: 500px;
             text-color: lavender;
@@ -154,14 +155,13 @@
 <body>
     <header>
         <nav>
-            <div class="left">SUMEDHA'S PORTFOLIO
-            </div>
+            <div class="left">PERSONAL PORTFOLIO</div>
             <div class="right">
                 <ul>
-                    <li><a href="/"> Home</a></li>
-                    <li><a href="/"> About</a></li>
-                    <li><a href="/"> Projects</a></li>
-                    <li><a href="https://www.instagram.com/sumedha__sahni/"> Contact Me</a></li>
+                    <li><a href="#home"> Home</a></li>
+                    <li><a href="#about"> About</a></li>
+                    <li><a href="#projects"> Projects</a></li> <!-- Updated link for smooth scrolling -->
+                    <li><a href="https://github.com/sumedhaSahni"> Github</a></li>
                 </ul>
             </div>
         </nav>
@@ -169,7 +169,7 @@
 
     </header>
     <main>
-        <section class="firstSection">
+        <section id="about" class="firstSection">
             <div class="leftSection"> </span> <span id="element"> </span> </break>
 
 
@@ -182,60 +182,106 @@
         </section>
         <hr style="border:0; background: #9c97f1; height: 1.2px; margin: 40px 84px;">
 
-        <section class="secondSection">
+        <section id="projects" class="secondSection">
             <h1>PROJECTS</h1>
             <div class="box">
-                <div class="vertical">
-                    <div class="vertical-title">
-                        Fake News Detector (ML) 
-                    </div>
-                    <div class="vertical-desc">
-                        	Utilized precise ML algorithms for news analysis, effectively separating truth from deception. Amplified media literacy and promoted credible sources for reliable information
-                    </div>
-                </div>
-                <div class="vertical">
-                    <div class="vertical-title">
-                        Expenses Management System(SE) 2022
-                    </div>
-                    <div class="vertical-desc">
-                        The project includes features such as expense categorization,Budget
-                        tracking and expense reporting. The aim of the project was tohelp individuals make informed
-                        financial decisions.
-
-                    </div>
-
-                </div>
                 <div class="vertical">
                     <div class="vertical-title">
                         HR Analytics Dashboard (Tableau)
                     </div>
                     <div class="vertical-desc">
                         Strategically devised and meticulously crafted dynamic HR analytics dashboard leveraging Tableau, enabling comprehensive visualization of workforce trends for informed decision-making and operational excellence.
+
+                    </div>
+                </div>
+                <div class="vertical">
+                    <div class="vertical-title">
+                        My Portfolio webpage (HTML CSS JS) 
+                    </div>
+                    <div class="vertical-desc">
+                        My portfolio page serves as a testament to my multifaceted skills and extensive projects across diverse domains.It's a dynamic display of my skills and creativity, reflecting a commitment to excellence in the digital realm. 
+
                     </div>
 
                 </div>
                 <div class="vertical">
                     <div class="vertical-title">
-                        Portfolio website (HTML CSS) 
+                        Amazon clone (Front-end)
                     </div>
                     <div class="vertical-desc">
-                        My portfolio website showcases my diverse range of skills and projects in various fields,
-                        demonstrating my expertise in web development and design.
+                        The Amazon Clone frontend faithfully emulates the renowned e-commerce platform's user interface, capturing its familiar design elements and functionalities.
+                    </div>
+
+                </div>
+                <div class="vertical">
+                    <div class="vertical-title">
+                        Fake News Detector (ML) 
+                    </div>
+                    <div class="vertical-desc">
+                        Utilized precise ML algorithms for news analysis, effectively separating truth from deception. Amplified media literacy and promoted credible sources for reliable information
                     </div>
 
                 </div>
         </section>
+        
     </main>
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <!-- Setup and start animation! -->
     <script>
         var typed = new Typed('#element', {
-            strings: ['Hi! I am Sumedha, a web developer skilled in creating user-friendly web applications and implementing efficient code.'],
+            strings: ['Hi! I am Sumedha a final-year B.E. student with an insatiable passion for all things Tech, coupled with a proficient grasp of a diverse range of soft skills.  '],
             typeSpeed: 30,
         });
-    </script>
+    
+        function smoothScroll(target, duration) {
+            const targetElement = document.querySelector(target);
+            const targetPosition = targetElement.offsetTop;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
+    
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+    
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+    
+            requestAnimationFrame(animation);
+        }
+    
+        // Add click event listener to "Projects" link
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectsLink = document.querySelector('a[href="#projects"]');
+            const aboutLink = document.querySelector('a[href="#about"]');
+            const contactLink = document.querySelector('a[href="#contact"]');
+    
+            projectsLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                smoothScroll('#projects', 1000); // 1000ms (1 second) duration
+            });
+    
+            aboutLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                smoothScroll('#about', 1000); // 1000ms (1 second) duration
+            });
+    
+            contactLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                smoothScroll('#contact', 1000); // 1000ms (1 second) duration
+            });
+        });
 
+    </script>
 
 
 
