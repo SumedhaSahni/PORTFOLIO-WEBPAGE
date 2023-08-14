@@ -8,7 +8,7 @@
 
   
   
-<h2> Features</h2>
+<h2>🧐 Features</h2>
 
 Here're some of the project's best features:
 
@@ -16,3 +16,8 @@ Here're some of the project's best features:
 *   Responsive Layout: The website is designed to be fully responsive ensuring a seamless browsing experience across different devices and screen sizes.
 *   Interactive Elements: JavaScript is utilized to create interactive elements that enhance user engagement and interactivity.
 *   GitHub Pages Hosting: The portfolio is hosted on GitHub Pages making it easily accessible for anyone to view and explore.
+
+
+
+
+  
