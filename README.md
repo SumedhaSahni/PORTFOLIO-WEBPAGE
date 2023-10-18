@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Portfolio-Website</h1>
+<h1 align="center" id="title">Portfolio--Website</h1>
 
 <p id="description">Created a website to showcase my collection of projects highlighting my skills and experiences in web development. The site is built using HTML CSS and JavaScript and is hosted on GitHub Pages for easy access and sharing.</p>
 
